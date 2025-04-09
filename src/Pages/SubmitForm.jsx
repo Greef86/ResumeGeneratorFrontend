@@ -34,7 +34,7 @@ const SubmitForm = () => {
                 setError("")
                 const response = await previewResumeFrontend(certificate, city, country, email, firstName, intro, languages, lastName, links, phone, profession, province, publications, school, skill, suburb, WorkExperience, zipCode)
                 if(response.success){
-                    window.open("http://localhost:8000/display-file", "_blank")
+                    window.open("https://resume-generator-backend-e1tk.onrender.com/display-file", "_blank")
                 }
                 if(response.fileName){
                     console.log(response.fileName)
@@ -49,7 +49,7 @@ const SubmitForm = () => {
     const downloadResume = async () => {
         try {
             const fileName = Cookies.get("ActualFile")
-            const response = await fetch(`http://localhost:8000/download?file=${fileName}`)
+            const response = await fetch(`https://resume-generator-backend-e1tk.onrender.com/download?file=${fileName}`)
             const blob = await response.blob()
             download(blob, fileName)
         } catch (error) {

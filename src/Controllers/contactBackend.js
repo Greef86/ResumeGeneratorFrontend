@@ -1,6 +1,6 @@
 
 const previewResumeFrontend = async (certificate, city, country, email, firstName, intro, languages, lastName, links, phone, profession, province, publications, school, skill, suburb, WorkExperience, zipCode) => {
-    const response = await fetch("http://localhost:8000/generate-file", {
+    const response = await fetch("https://resume-generator-backend-e1tk.onrender.com/generate-file", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
