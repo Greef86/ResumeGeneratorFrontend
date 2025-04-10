@@ -12,6 +12,7 @@ const SubmitForm = () => {
     
     const downloadResume = async () => {
         setError("")
+        setSuccess("")
         setLoading("Please Wait...")
         const certificate = Cookies.get("certificate")
         const city = Cookies.get("city")
@@ -37,13 +38,17 @@ const SubmitForm = () => {
                 setError("To generate a simple resume you need a minimum of FirstName, LastName, Email, Phone, Profession, Country, Province/State, City, Suburb and ZipCode")
             }else{
                 const response = await previewResumeFrontend(certificate, city, country, email, firstName, intro, languages, lastName, links, phone, profession, province, publications, school, skill, suburb, WorkExperience, zipCode)
-                if(response.fileName){
-                    const res = await fetch(`https://resume-generator-backend-e1tk.onrender.com/download?file=${response.fileName}`)
-                    const blob = await res.blob()
+                if(response.success){
+                    const fileResponse = await fetch("https://resume-generator-backend-e1tk.onrender.com/download", {
+                        method: "GET"
+                    })
+                    if(!fileResponse.ok){
+                        throw new Error("HTTP Error, Backend!")
+                    }
+                    const blob = await fileResponse.blob()
                     download(blob, response.fileName)
                     setLoading("")
-
-                    setSuccess("File Downloaded Successfully")
+                    setSuccess(response.success)
                     setTimeout(() => {
                         setSuccess("")
                     }, 6000)

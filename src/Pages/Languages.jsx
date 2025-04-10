@@ -17,7 +17,7 @@ const Languages = () => {
           ...current,
           width: "100%", 
           minHeight: "1em",
-          maxHeight: "1.7em",
+          maxHeight: "2em",
           textAlign: "left",
           borderColor: "black",
           border: "1.5px solid black",
