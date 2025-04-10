@@ -97,7 +97,7 @@ const Skills = () => {
         <h2 style={{marginTop: "-0.5em", textAlign: "center"}}>Skills</h2>
         {schoolError ? <small style={{margin: "-6px", color: "red", textAlign: "center"}}>{schoolError}</small> : <></>}
         {schoolSuccess ? <small style={{margin: "-6px", color: "green", textAlign: "center"}}>{schoolSuccess}</small> : <></>}
-        <input value={skill} onChange={event => setSkill(event.target.value)} style={{marginBottom: "0.3em"}} required pattern='^\S+(?: \S+)*$' title='Please enter text without leading or trailing spaces' type="text" placeholder="Skill"/>
+        <input value={skill} onChange={event => setSkill(event.target.value)} style={{marginBottom: "0.3em"}} required pattern='^\S+(?: \S+)*\s?$' title='Please enter text without leading or trailing spaces' type="text" placeholder="Skill"/>
         <Select value={proficiency} onChange={setProficiency} required styles={customStyles} options={skills} placeholder="Proficiency"/>
         <button style={{marginTop: "0.5em"}} type="submit">Save Info</button>
         </form>

@@ -153,12 +153,12 @@ const Certifications = () => {
             <div className="inner">
                 <h2 style={{marginTop: "-0.5em", textAlign: "center"}}>Edit Certificates/Licences</h2>
                 {/* {workExperienceError ? <small style={{margin: "-6px", color: "red", textAlign: "center"}}>{workExperienceError}</small> : <></>} */}
-                <input value={editCertificationObj.name} onChange={event => setEditCertificationObj({...editCertificationObj, name: event.target.value})} required pattern='^\S+(?: \S+)*$' title='Please enter text without leading or trailing spaces' type="text" placeholder="Certificate Name"/>
+                <input value={editCertificationObj.name} onChange={event => setEditCertificationObj({...editCertificationObj, name: event.target.value})} required pattern='^\S+(?: \S+)*\s?$' title='Please enter text without leading or trailing spaces' type="text" placeholder="Certificate Name"/>
                 <label>Date Issued</label>
                 <input value={editCertificationObj.dateIssued} onChange={event => setEditCertificationObj({...editCertificationObj, dateIssued: event.target.value})} required className='input-date' type="date" />
                 <label>Date Expire</label>
                 <input value={editCertificationObj.expiryDate} onChange={event => setEditCertificationObj({...editCertificationObj, expiryDate: event.target.value})} className='input-date' type="date" />
-                <TextareaAutosize value={editCertificationObj.details} onChange={event => setEditCertificationObj({...editCertificationObj, details: event.target.value})} minRows={4} maxRows={6} required pattern='^\S+(?: \S+)*$' title='Please enter text without leading or trailing spaces' className='autoSizeTextArea' type='text' placeholder='Give details about the certificate/licence'/>
+                <TextareaAutosize value={editCertificationObj.details} onChange={event => setEditCertificationObj({...editCertificationObj, details: event.target.value})} minRows={4} maxRows={6} required pattern='^\S+(?: \S+)*\s?$' title='Please enter text without leading or trailing spaces' className='autoSizeTextArea' type='text' placeholder='Give details about the certificate/licence'/>
                 <div className="edit-work-experience-btns">
                     <button type="submit">Save Info</button>
                     <button style={{backgroundColor: "red"}} onClick={() => {
@@ -173,12 +173,12 @@ const Certifications = () => {
         <h2 style={{marginTop: "-0.5em", textAlign: "center"}}>Certificates/Licences</h2>
         {schoolError ? <small style={{margin: "-6px", color: "red", textAlign: "center"}}>{schoolError}</small> : <></>}
         {schoolSuccess ? <small style={{margin: "-6px", color: "green", textAlign: "center"}}>{schoolSuccess}</small> : <></>}
-        <input value={certificationObj.name} onChange={event => setCertificationObj({...certificationObj, name: event.target.value})} required pattern='^\S+(?: \S+)*$' title='Please enter text without leading or trailing spaces' type="text" placeholder="Certificate Name"/>
+        <input value={certificationObj.name} onChange={event => setCertificationObj({...certificationObj, name: event.target.value})} required pattern='^\S+(?: \S+)*\s?$' title='Please enter text without leading or trailing spaces' type="text" placeholder="Certificate Name"/>
         <label>Date Issued</label>
         <input value={certificationObj.dateIssued} onChange={event => setCertificationObj({...certificationObj, dateIssued: event.target.value})} required className='input-date' type="date" />
         <label>Date Expire (optional)</label>
         <input value={certificationObj.expiryDate} onChange={event => setCertificationObj({...certificationObj, expiryDate: event.target.value})} className='input-date' type="date" />
-        <TextareaAutosize value={certificationObj.details} onChange={event => setCertificationObj({...certificationObj, details: event.target.value})} minRows={4} maxRows={6} required pattern='^\S+(?: \S+)*$' title='Please enter text without leading or trailing spaces' className='autoSizeTextArea' type='text' placeholder='Give details about the certificate/licence'/>
+        <TextareaAutosize value={certificationObj.details} onChange={event => setCertificationObj({...certificationObj, details: event.target.value})} minRows={4} maxRows={6} required pattern='^\S+(?: \S+)*\s?$' title='Please enter text without leading or trailing spaces' className='autoSizeTextArea' type='text' placeholder='Give details about the certificate/licence'/>
         <button type="submit">Save Info</button>
         </form>
         <br />

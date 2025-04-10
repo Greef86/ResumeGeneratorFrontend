@@ -151,8 +151,8 @@ const WorkExperience = () => {
             <div className="inner">
                 <h2 style={{marginTop: "-0.5em", textAlign: "center"}}>Edit Work Experience</h2>
                 {workExperienceError ? <small style={{margin: "-6px", color: "red", textAlign: "center"}}>{workExperienceError}</small> : <></>}
-                <input required pattern='^\S+(?: \S+)*$' title='Please enter text without leading or trailing spaces' value={editWorkExperienceObj.company} onChange={event => setEditWorkExperienceObj({...editWorkExperienceObj, company: event.target.value})} type="text" placeholder="Company"/>
-                <input required pattern='^\S+(?: \S+)*$' title='Please enter text without leading or trailing spaces' value={editWorkExperienceObj.jobTitle} onChange={event => setEditWorkExperienceObj({...editWorkExperienceObj, jobTitle: event.target.value})} type="text" placeholder="Job Title"/>
+                <input required pattern='^\S+(?: \S+)*\s?$' title='Please enter text without leading or trailing spaces' value={editWorkExperienceObj.company} onChange={event => setEditWorkExperienceObj({...editWorkExperienceObj, company: event.target.value})} type="text" placeholder="Company"/>
+                <input required pattern='^\S+(?: \S+)*\s?$' title='Please enter text without leading or trailing spaces' value={editWorkExperienceObj.jobTitle} onChange={event => setEditWorkExperienceObj({...editWorkExperienceObj, jobTitle: event.target.value})} type="text" placeholder="Job Title"/>
                 <label>Start Date</label>
                 <input required value={editWorkExperienceObj.startDate} onChange={event => setEditWorkExperienceObj({...editWorkExperienceObj, startDate: event.target.value})} className='input-date' type="date" />
                 <label>End Date</label>
@@ -171,8 +171,8 @@ const WorkExperience = () => {
         <h2 style={{marginTop: "-0.5em", textAlign: "center"}}>Work Experience</h2>
         {workExperienceError ? <small style={{margin: "-6px", color: "red", textAlign: "center"}}>{workExperienceError}</small> : <></>}
         {workExperienceSuccess ? <small style={{margin: "-6px", color: "green", textAlign: "center"}}>{workExperienceSuccess}</small> : <></>}
-        <input required pattern='^\S+(?: \S+)*$' title='Please enter text without leading or trailing spaces' value={workExperienceObj.company} onChange={event => setWorkExperienceObj({...workExperienceObj, company: event.target.value})} type="text" placeholder="Company"/>
-        <input required pattern='^\S+(?: \S+)*$' title='Please enter text without leading or trailing spaces' value={workExperienceObj.jobTitle} onChange={event => setWorkExperienceObj({...workExperienceObj, jobTitle: event.target.value})} type="text" placeholder="Job Title"/>
+        <input required pattern='^\S+(?: \S+)*\s?$' title='Please enter text without leading or trailing spaces' value={workExperienceObj.company} onChange={event => setWorkExperienceObj({...workExperienceObj, company: event.target.value})} type="text" placeholder="Company"/>
+        <input required pattern='^\S+(?: \S+)*\s?$' title='Please enter text without leading or trailing spaces' value={workExperienceObj.jobTitle} onChange={event => setWorkExperienceObj({...workExperienceObj, jobTitle: event.target.value})} type="text" placeholder="Job Title"/>
         <label>Start Date</label>
         <input required value={workExperienceObj.startDate} onChange={event => setWorkExperienceObj({...workExperienceObj, startDate: event.target.value})} className='input-date' type="date" />
         <label>End Date (optional)</label>

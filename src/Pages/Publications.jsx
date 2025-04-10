@@ -143,11 +143,11 @@ const Publications = () => {
                 <h2 style={{marginTop: "-0.5em", textAlign: "center"}}>Edit publications</h2>
                 {schoolError ? <small style={{margin: "-6px", color: "red", textAlign: "center"}}>{schoolError}</small> : <></>}
                 {schoolSuccess ? <small style={{margin: "-6px", color: "green", textAlign: "center"}}>{schoolSuccess}</small> : <></>}
-                <input value={editPublicationObj.name} onChange={event => setEditPublicationObj({...editPublicationObj, name: event.target.value})} required pattern='^\S+(?: \S+)*$' title='Please enter text without leading or trailing spaces' type="text" placeholder="Name of publication"/>
-                <input value={editPublicationObj.link} onChange={event => setEditPublicationObj({...editPublicationObj, link: event.target.value})} required pattern='^\S+(?: \S+)*$' title='Please enter text without leading or trailing spaces' type="text" placeholder="publication Link"/>
+                <input value={editPublicationObj.name} onChange={event => setEditPublicationObj({...editPublicationObj, name: event.target.value})} required pattern='^\S+(?: \S+)*\s?$' title='Please enter text without leading or trailing spaces' type="text" placeholder="Name of publication"/>
+                <input value={editPublicationObj.link} onChange={event => setEditPublicationObj({...editPublicationObj, link: event.target.value})} required pattern='^\S+(?: \S+)*\s?$' title='Please enter text without leading or trailing spaces' type="text" placeholder="publication Link"/>
                 <label>Date Published</label>
                 <input value={editPublicationObj.date} onChange={event => setEditPublicationObj({...editPublicationObj, date: event.target.value})} required className='input-date' type="date" />
-                <TextareaAutosize value={editPublicationObj.details} onChange={event => setEditPublicationObj({...editPublicationObj, details: event.target.value})} minRows={4} maxRows={6} required pattern='^\S+(?: \S+)*$' title='Please enter text without leading or trailing spaces' className='autoSizeTextArea' type='text' placeholder='Publication details'/>
+                <TextareaAutosize value={editPublicationObj.details} onChange={event => setEditPublicationObj({...editPublicationObj, details: event.target.value})} minRows={4} maxRows={6} required pattern='^\S+(?: \S+)*\s?$' title='Please enter text without leading or trailing spaces' className='autoSizeTextArea' type='text' placeholder='Publication details'/>
                 <div className="edit-work-experience-btns">
                     <button type="submit">Save Info</button>
                     <button style={{backgroundColor: "red"}} onClick={() => {
@@ -162,11 +162,11 @@ const Publications = () => {
         <h2 style={{marginTop: "-0.5em", textAlign: "center"}}>Publications</h2>
         {schoolError ? <small style={{margin: "-6px", color: "red", textAlign: "center"}}>{schoolError}</small> : <></>}
         {schoolSuccess ? <small style={{margin: "-6px", color: "green", textAlign: "center"}}>{schoolSuccess}</small> : <></>}
-        <input value={publicationObj.name} onChange={event => setPublicationObj({...publicationObj, name: event.target.value})} required pattern='^\S+(?: \S+)*$' title='Please enter text without leading or trailing spaces' type="text" placeholder="Name of publication"/>
-        <input value={publicationObj.link} onChange={event => setPublicationObj({...publicationObj, link: event.target.value})} required pattern='^\S+(?: \S+)*$' title='Please enter text without leading or trailing spaces' type="text" placeholder="publication Link"/>
+        <input value={publicationObj.name} onChange={event => setPublicationObj({...publicationObj, name: event.target.value})} required pattern='^\S+(?: \S+)*\s?$' title='Please enter text without leading or trailing spaces' type="text" placeholder="Name of publication"/>
+        <input value={publicationObj.link} onChange={event => setPublicationObj({...publicationObj, link: event.target.value})} required pattern='^\S+(?: \S+)*\s?$' title='Please enter text without leading or trailing spaces' type="text" placeholder="publication Link"/>
         <label>Date Published</label>
         <input value={publicationObj.date} onChange={event => setPublicationObj({...publicationObj, date: event.target.value})} required className='input-date' type="date" />
-        <TextareaAutosize value={publicationObj.details} onChange={event => setPublicationObj({...publicationObj, details: event.target.value})} minRows={4} maxRows={6} required pattern='^\S+(?: \S+)*$' title='Please enter text without leading or trailing spaces' className='autoSizeTextArea' type='text' placeholder='Publication details'/>
+        <TextareaAutosize value={publicationObj.details} onChange={event => setPublicationObj({...publicationObj, details: event.target.value})} minRows={4} maxRows={6} required pattern='^\S+(?: \S+)*\s?$' title='Please enter text without leading or trailing spaces' className='autoSizeTextArea' type='text' placeholder='Publication details'/>
         <button type="submit">Save Info</button>
         </form>
         <br />

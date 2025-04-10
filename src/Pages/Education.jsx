@@ -158,9 +158,9 @@ const Education = () => {
             <div className="inner">
                 <h2 style={{marginTop: "-0.5em", textAlign: "center"}}>Edit Education</h2>
                 {/* {workExperienceError ? <small style={{margin: "-6px", color: "red", textAlign: "center"}}>{workExperienceError}</small> : <></>} */}
-                <input required pattern='^\S+(?: \S+)*$' title='Please enter text without leading or trailing spaces' value={editEducationObj.school} onChange={event => setEditEducationObj({...editEducationObj, school: event.target.value})} type="text" placeholder="School"/>
-                <input required pattern='^\S+(?: \S+)*$' title='Please enter text without leading or trailing spaces' value={editEducationObj.certificate} onChange={event => setEditEducationObj({...editEducationObj, certificate: event.target.value})} type="text" placeholder="Certificate Name"/>
-                <input required pattern='^\S+(?: \S+)*$' title='Please enter text without leading or trailing spaces' value={editEducationObj.qualification} onChange={event => setEditEducationObj({...editEducationObj, qualification: event.target.value})} type="text" placeholder="Qualification Level"/>
+                <input required pattern='^\S+(?: \S+)*\s?$' title='Please enter text without leading or trailing spaces' value={editEducationObj.school} onChange={event => setEditEducationObj({...editEducationObj, school: event.target.value})} type="text" placeholder="School"/>
+                <input required pattern='^\S+(?: \S+)*\s?$' title='Please enter text without leading or trailing spaces' value={editEducationObj.certificate} onChange={event => setEditEducationObj({...editEducationObj, certificate: event.target.value})} type="text" placeholder="Certificate Name"/>
+                <input required pattern='^\S+(?: \S+)*\s?$' title='Please enter text without leading or trailing spaces' value={editEducationObj.qualification} onChange={event => setEditEducationObj({...editEducationObj, qualification: event.target.value})} type="text" placeholder="Qualification Level"/>
                 <label>Start Date</label>
                 <input required value={editEducationObj.startDate} onChange={event => setEditEducationObj({...editEducationObj, startDate: event.target.value})} className='input-date' type="date" />
                 <label>End Date</label>
@@ -179,9 +179,9 @@ const Education = () => {
         <h2 style={{marginTop: "-0.5em", textAlign: "center"}}>Education</h2>
         {schoolError ? <small style={{margin: "-6px", color: "red", textAlign: "center"}}>{schoolError}</small> : <></>}
         {schoolSuccess ? <small style={{margin: "-6px", color: "green", textAlign: "center"}}>{schoolSuccess}</small> : <></>}
-        <input value={educationObj.school} onChange={event => setEducationObj({...educationObj, school: event.target.value})} required pattern='^\S+(?: \S+)*$' title='Please enter text without leading or trailing spaces' type="text" placeholder="School"/>
-        <input value={educationObj.certificate} onChange={event => setEducationObj({...educationObj, certificate: event.target.value})} required pattern='^\S+(?: \S+)*$' title='Please enter text without leading or trailing spaces' type="text" placeholder="Certificate Name"/>
-        <input value={educationObj.qualification} onChange={event => setEducationObj({...educationObj, qualification: event.target.value})} required pattern='^\S+(?: \S+)*$' title='Please enter text without leading or trailing spaces' type="text" placeholder="Qualification Level"/>
+        <input value={educationObj.school} onChange={event => setEducationObj({...educationObj, school: event.target.value})} required pattern='^\S+(?: \S+)*\s?$' title='Please enter text without leading or trailing spaces' type="text" placeholder="School"/>
+        <input value={educationObj.certificate} onChange={event => setEducationObj({...educationObj, certificate: event.target.value})} required pattern='^\S+(?: \S+)*\s?$' title='Please enter text without leading or trailing spaces' type="text" placeholder="Certificate Name"/>
+        <input value={educationObj.qualification} onChange={event => setEducationObj({...educationObj, qualification: event.target.value})} required pattern='^\S+(?: \S+)*\s?$' title='Please enter text without leading or trailing spaces' type="text" placeholder="Qualification Level"/>
         <label>Start Date</label>
         <input value={educationObj.startDate} onChange={event => setEducationObj({...educationObj, startDate: event.target.value})} required className='input-date' type="date" />
         <label>End Date</label>
