@@ -77,7 +77,7 @@ const SubmitForm = () => {
         <div style={{display: "flex", flexDirection: "column", marginBottom: "1em"}}>
             {loading && <small style={{color: "black", textAlign: "center"}}>{loading}</small>}
             {error ? <small style={{color: "red", textAlign: "center"}}>{error}</small> : <></>}
-            {pdfUrl && <iframe className='edit-work-exp' src={`https://docs.google.com/gview?url=${pdfUrl}&embedded=true`} title='view-pdf' height={500} width="100%"></iframe>}
+            {pdfUrl && <embed className='edit-work-exp' title='view-pdf' type='application/pdf' src={pdfUrl} height={500} width="100%"/>}
             {pdfUrl && <button onClick={() => setPdfUrl(false)} className='dismiss-pdf'>X</button>}
             <div>
                 <button onClick={downloadResume}>Download PDF <BsFileEarmarkPdfFill/></button>
