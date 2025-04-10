@@ -7,10 +7,11 @@ import download from "js-file-download"
 const SubmitForm = () => {
 
     const [error, setError] = useState(false)
-    const [pdfUrl, setPdfUrl] = useState(false)
     const [loading, setLoading] = useState(false)
+    const [success, setSuccess] = useState(false)
     
-    const previewResume = async () => {
+    const downloadResume = async () => {
+        setError("")
         setLoading("Please Wait...")
         const certificate = Cookies.get("certificate")
         const city = Cookies.get("city")
@@ -35,36 +36,18 @@ const SubmitForm = () => {
                 setLoading("")
                 setError("To generate a simple resume you need a minimum of FirstName, LastName, Email, Phone, Profession, Country, Province/State, City, Suburb and ZipCode")
             }else{
-                setError("")
                 const response = await previewResumeFrontend(certificate, city, country, email, firstName, intro, languages, lastName, links, phone, profession, province, publications, school, skill, suburb, WorkExperience, zipCode)
-                if(response.success){
-                    //window.open("http://localhost:8000/display-file", "_blank")
-                    setPdfUrl("https://resume-generator-backend-e1tk.onrender.com/display-file")
-                }
                 if(response.fileName){
-                    console.log(response.fileName)
-                    Cookies.set("ActualFile", response.fileName, {expires: 90})
-                }
-                setLoading("")
-            }
-        } catch (error) {
-            setLoading("")
-            setError(error)
-        }
-    }
+                    const res = await fetch(`https://resume-generator-backend-e1tk.onrender.com/download?file=${response.fileName}`)
+                    const blob = await res.blob()
+                    download(blob, response.fileName)
+                    setLoading("")
 
-    const downloadResume = async () => {
-        setLoading("Please Wait...")
-        try {
-            const fileName = Cookies.get("ActualFile")
-            if(!fileName){
-                setLoading("")
-                setError("Please Generate & View Resume First!")
-            }else{
-                const response = await fetch(`https://resume-generator-backend-e1tk.onrender.com/download?file=${fileName}`)
-                const blob = await response.blob()
-                download(blob, fileName)
-                setLoading("")
+                    setSuccess("File Downloaded Successfully")
+                    setTimeout(() => {
+                        setSuccess("")
+                    }, 6000)
+                }
             }
         } catch (error) {
             setLoading("")
@@ -75,14 +58,10 @@ const SubmitForm = () => {
   return (
     <div>
         <div style={{display: "flex", flexDirection: "column", marginBottom: "1em"}}>
-            {loading && <small style={{color: "black", textAlign: "center"}}>{loading}</small>}
-            {error ? <small style={{color: "red", textAlign: "center"}}>{error}</small> : <></>}
-            {pdfUrl && <embed className='edit-work-exp' title='view-pdf' type='application/pdf' src={pdfUrl} height={500} width="100%"/>}
-            {pdfUrl && <button onClick={() => setPdfUrl(false)} className='dismiss-pdf'>X</button>}
-            <div>
-                <button onClick={downloadResume}>Download PDF <BsFileEarmarkPdfFill/></button>
-                <button onClick={previewResume} style={{backgroundColor: "maroon"}}>Generate & View</button>
-            </div>
+            {loading && <p style={{color: "black", paddingLeft: "0.5em"}}>{loading}</p>}
+            {success && <p style={{color: "green", paddingLeft: "0.5em"}}>{success}</p>}
+            {error && <p style={{color: "red", paddingLeft: "0.5em"}}>{error}</p>}
+            <button onClick={downloadResume}>Download PDF <BsFileEarmarkPdfFill/></button>
         </div>
     </div>
   )

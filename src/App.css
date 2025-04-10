@@ -121,17 +121,6 @@
     margin-top: 0.5em;
 }
 
-.dismiss-pdf{
-    position: fixed;
-    bottom: 3em;
-    right: 3em;
-    background-color: red;
-    width: 3em;
-    height: 3em;
-    z-index: 200;
-    border-radius: 3em;
-}
-
 @media screen and (max-width: 500px){
 
     body{
